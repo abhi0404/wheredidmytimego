@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>WhereDidMyTimeGo – Understand where your day really went</title>
+
+    <meta name="description" content="See where your life hours are really going. A simple, eye-opening calculator for time, phone usage, and work." />
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="WhereDidMyTimeGo" />
+    <meta property="og:description" content="Understand where your day really went." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wheredidmytimego.com" />
+    <meta property="og:image" content="https://wheredidmytimego.com/og-image.png" />
+
+    <!-- Optional but smart -->
+    <meta property="og:site_name" content="WhereDidMyTimeGo" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://umami.is/script.js"
+        data-website-id="https://wheredidmytimego.com">
+    </script>
+</head>
+<header class="site-header">
+    <div class="header-content">
+        <h1 class="site-title">WhereDidMyTimeGo</h1>
+    </div>
+</header>
+
+
+<body>
+
+    <form id="lifeForm">
+        <label>Current Age:
+            <input type="number" id="age" placeholder="Enter number only" inputmode="numeric"pattern="[0-9]*" required>
+        </label>
+
+        <label>Expected Lifespan:
+            <input type="number" id="lifespan" value="75" placeholder="Enter number only" inputmode="numeric"pattern="[0-9]*" required>
+        </label>
+
+        <label>Sleep Hours per Day:
+            <input type="number" id="sleep" value="8" placeholder="Enter number only" inputmode="numeric"pattern="[0-9]*" required>
+        </label>
+
+        <label>Phone Hours per Day:
+            <input type="number" id="phone" value="3" placeholder="Enter number only" inputmode="numeric"pattern="[0-9]*" required>
+        </label>
+
+        <label>
+            Reduce Phone Usage by (hours/day):
+            <input type="range" id="reducePhone" min="0" step="0.5" value="0" placeholder="Enter number only" inputmode="numeric"pattern="[0-9]*">
+            <span id="reduceValue">0</span> hrs
+            <small style="opacity:0.7;">
+                Reducing by 1 hour/day saves ~365 hours per year
+            </small>
+        </label>
+
+        <label>Work Hours per Day:
+            <input type="number" id="work" value="8" placeholder="Enter number only" inputmode="numeric"pattern="[0-9]*" required>
+        </label>
+
+        <label>Commute Hours per Day:
+            <input type="number" id="commute" value="1" placeholder="Enter number only" inputmode="numeric"pattern="[0-9]*" required>
+        </label>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result">
+        <p>You have approximately <strong><span id="consciousHours">0</span></strong> conscious hours left.</p>
+
+        <p>📱 You will spend <strong><span id="phoneHours">0</span></strong> hours on your phone.</p>
+
+        <p>🟢 By reducing phone usage, you save 
+            <strong><span id="savedPhoneHours">0</span></strong> hours
+            (~<strong><span id="savedYears">0</span></strong> years of life).
+        </p>
+    </div>
+    <div id="chartContainer">
+        <p style="text-align:center; font-size: 14px; opacity: 0.7;">
+            Percentages are based on your remaining conscious life
+        </p>
+        <canvas id="lifeChart"></canvas>
+    </div>
+    <div id="shareButtons" style="display:flex; justify-content:center; gap:10px; margin-top:20px;">
+        <button onclick="shareFacebook()">Facebook</button>
+        <button onclick="shareTwitter()">Twitter</button>
+        <button onclick="shareWhatsApp()">WhatsApp</button>
+        <button onclick="copyLink()">Copy Link</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+<!-- <footer style="background:#f7f7f7; padding:10px 20px; text-align:center; font-size:0.85em; color:#333; font-family:sans-serif; margin-top:20px;">
+  <p>Creation for fun | <a href="/contact" style="color:#007BFF; text-decoration:none;">Contact Us</a> | <a href="/about" style="color:#007BFF; text-decoration:none;">About</a></p>
+  <p style="margin-top:5px; font-size:0.75em; color:#777;">⚠️ Disclaimer: This calculator is an estimation tool for personal awareness and entertainment purposes.</p>
+</footer> -->
+<footer style="text-align:center; font-size:14px; opacity:0.7; margin:20px 0;">
+    <a href="privacy.html">Privacy Policy</a> •
+    <a href="contact.html">Contact</a>
+</footer>
+
+<footer class="site-footer">
+
+  <div class="footer-section">
+    <h3>About Us</h3>
+    <p>
+      This website is built to provide quick, simple, and shareable information.
+      Our goal is to create easy tools and content that anyone can use and share
+      instantly across the web.
+    </p>
+  </div>
+
+  <div class="footer-section">
+    <h3>Contact Us</h3>
+    <p>
+      For feedback, suggestions, or issues, reach us at:
+      <br />
+      <a href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
+    </p>
+    <!-- <h3>Contact Us</h3>
+    <p>
+        For feedback, suggestions, or issues, reach us at:
+      <br />
+    📧 <a href="mailto:contact@yourwebsite.com">
+        contact@yourwebsite.com
+    </a>
+    </p> -->
+  </div>
+
+  <div class="footer-section">
+    <h3>Disclaimer</h3>
+    <p>
+      This website is for informational and entertainment purposes only.
+      We do not guarantee accuracy or completeness of any information shown.
+      Use at your own discretion.
+    </p>
+  </div>
+
+</footer>
+
+</html>
